@@ -4,7 +4,7 @@
 
 ##### Sovelluksella voi harjoitella Japanin kielen alkeita. Opettaja voi lisätä sovellukseen pakkoja jotka koostuvat yksittäisistä korteista. Jokaisesta kortista löytyy käännös tehtävä.
 
-Sovelluksen ominaisuuksia:
+Sovelluksen ominaisuuksia tulee olemaan:
 * Käyttäjä pystyy kirjautumaan sisään ja ulos sekä luoda uuden käyttäjätunnuksen.
 * Opiskelija pystyy selaamaan sovelluksessa olevia pakkoja sekä lukemaan niiden kuvauksia.
 * Jokaisesta pakasta saa tilaston, montako korttia on mennyt oikein ja montako väärin.
