@@ -14,3 +14,5 @@ Sovelluksen ominaisuuksia tulee olemaan:
 * Opettaja voi tarkastella tilastoja luomistaan pakoista. Tilastosta voidaan seurata opiskelijoiden edistymistä.
 
 :cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom:
+
+Tähän tulee linkki Herokuun.
