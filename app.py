@@ -15,3 +15,10 @@ def page1():
 def page2():
     return render_template("words.html")
 
+@app.route("/kirjaudu_sisään")
+def page3():
+    return render_template("login.html")
+
+@app.route("/kirjaudu_sisään/luo_tunnus")
+def page4():
+    return render_template("register.html")

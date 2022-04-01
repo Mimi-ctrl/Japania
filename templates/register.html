@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+{% block content %}
+<hr>
+<h2>Luo uusi tunnus</h2>
+<p>
+    Käyttäjätunnus: <br><input type="text" name="username"> <br>
+    Salasana: <br><input type="password" name="password"> <br>
+    Salasana uudestaan: <br><input type="password" name="password"> <br>
+</p>
+<p>
+    Status: 
+    <select name="status">
+    <option value1=>oppilas
+    <option value2=>opettaja
+    </select> 
+</p>
+<input type="submit" value="Luo tunnus">
+{% endblock %}
