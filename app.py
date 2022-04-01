@@ -22,3 +22,7 @@ def page3():
 @app.route("/kirjaudu_sisään/luo_tunnus")
 def page4():
     return render_template("register.html")
+
+@app.route("/pakka")
+def page5():
+    return render_template("deck.html")

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>Pakka _____</h2>
+
+<p>
+    Tekijä: ______
+    Kortteja: __ kpl
+
+    Oikein vastattuja: ___
+    Väärin vastatuja: ____
+
+    Tähän tulee arviot:
+</p>
+<h3>Jätä arvio pakasta:</h3>
+<form action="/review" method="post">
+<p>Kommentti:<br>
+<textarea name="comment" row="3" cols="40" maxlength="1000"></textarea>
+</p>
+<input type="submit" value="Lähetä">
+</form>
+{% endblock %}
+
+
