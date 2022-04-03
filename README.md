@@ -7,6 +7,7 @@
 Sovelluksen ominaisuuksia tulee olemaan:
 * Käyttäjä pystyy kirjautumaan sisään ja ulos sekä luoda uuden käyttäjätunnuksen.
 * Opiskelija pystyy selaamaan sovelluksessa olevia pakkoja sekä lukemaan niiden kuvauksia.
+* Opiskelija pystyy katsomaan materiaaleja.
 * Jokaisesta pakasta saa tilaston, montako korttia on mennyt oikein ja montako väärin.
 * Pakoista voidaan antaa arvioita, sekä lukea muiden arvosteluita.
 * Pakkan korttien avulla voidaan harjoitella Japanin kielen alkeita. Korteista löytyy sanoja, lauseita tai Japanin kirjoitusmerkkejä joita tulisi kääntää joko Suomeksi tai Japaniksi. Kun korttiin on vastattu saa palautetta, onko käännös oikein vai väärin.
@@ -15,4 +16,4 @@ Sovelluksen ominaisuuksia tulee olemaan:
 
 :cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom:
 
-Tähän tulee linkki Herokuun.
+Linkki [Herokuun](https://japania.herokuapp.com/).
