@@ -3,23 +3,26 @@ body {
     text-align: center;
     max-width: 45em;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color:rgb(243, 190, 198);
+    background-image: url('furin.jpg');
+    accent-color: Pink;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 a:link {
-  color: red;
+  color: blueviolet;
   background-color: transparent;
   text-decoration: none;
 }
 
 a:visited {
-  color: red;
+  color: blueviolet;
   background-color: transparent;
   text-decoration: none;
 }
 
 a:hover {
-  color: red ;
+  color: blueviolet;
   background-color: transparent;
   text-decoration: none;
 }
