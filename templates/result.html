@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h3>Vastaus:</h3>
+
+Vastauksesi oli: <br>{{ answer }}</br>
+Sana oli: <br>{{ question }}</br> 
+
+{% if answer == correct %}
+おめでと, vastaus on oikein!
+{% else %}
+間違った, oikea vastaus on <b>{{ correct }}</b>.
+{% endif %}
+
+<p>
+<a href="/play/{{ deck_id }}">Uusi kortti</a> |
+<a href="/deck/{{ deck_id }}">Lopeta</a>
+    
+{% endblock %}

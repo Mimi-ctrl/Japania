@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h3>Kirjoita käännös</h3>
+
+<form action="/result" method="post">
+
+<br>{{ question }}</br>:<br>
+<input type="text" name="answer">
+
+<input type="submit" value="Lähetä">
+
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+
+</form>
+
+{% endblock %}

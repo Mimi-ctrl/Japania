@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>Luo uusi pakka</h2>
+
+<form action="/new_deck" method="post">
+<p>Nimi:<br>
+<input type="text" name="name" minlength="1" maxlength="15"></p>
+
+<p>Kirjoita sanaparit:<br>
+<textarea name="words" rows="8" cols="40" maxlength="20000" placeholder="esim. kissa;neko">
+</textarea></p>
+
+<input type="submit" value="Lähetä">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+</form>
+{% endblock %}

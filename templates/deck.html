@@ -2,16 +2,33 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h2>Pakka _____</h2>
+<h2>Pakka {{ name }}</h2>
 
-<p>
-    Tekijä: ______
-    Kortteja: __ kpl
+<ul>
+    <li>Tekijä: {{ creator }}
+    <li>Kortteja: {{ size }} kpl
+</ul>
 
-    Oikein vastattuja: ___
-    Väärin vastatuja: ____
+{% if session.user_id %}
+<p><a href="/play/{{ id }}">Aloita</a></p>
 
-    Tähän tulee arviot:
+<ul>
+    <li>Oikein vastattuja: {{ correct }}
+    <li>Väärin vastatuja: {{ total-correct }}
+</ul>
+
+{% endif %}
+{% if reviews %}
+<h3>Arviot</h3>
+{% endif %}
+
+<ul>
+    {% for entry in reviews %}
+    <li> {{ entry[0] }} ({{ entry[1] }}/5): "{{ entry[2] }}"
+    {% endfor %}
+</ul>
+
+{% if session.user_id %}
 </p>
 <h3>Jätä arvio pakasta:</h3>
 <label>
@@ -25,6 +42,7 @@
 <form action="/pakka">
     <input type="submit" value="Lähetä">
 </form>
+{% endif %}
 {% endblock %}
 
 

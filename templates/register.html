@@ -3,19 +3,20 @@
 {% block content %}
 <hr>
 <h2>Luo uusi tunnus</h2>
+<form action="/register" method="post">
 <p>
-    Käyttäjätunnus: <br><input type="text" name="username" placeholder="esim. Maija"> <br>
-    Salasana: <br><input type="password" name="password" placeholder="esim. S4gl583vYT"> <br>
-    Salasana uudestaan: <br><input type="password" name="password" placeholder="esim. S4gl583vYT"> <br>
-</p>
+Käyttäjätunnus: <br><input type="text" name="username" minlength="1" maxlength="15" placeholder="esim. Maija"> 
 <p>
-    Status: 
-    <select name="status">
-    <option value1=>oppilas
-    <option value2=>opettaja
-    </select> 
-</p>
-<form action="/">
-    <input type="submit" value="Luo tunnus">
+Salasana: <br><input type="password" name="password" placeholder="esim. S4gl583vYT"> 
+<p>
+Salasana uudestaan: <br><input type="password" name="password" placeholder="esim. S4gl583vYT"> 
+<p>
+Status: 
+<select name="status">
+<option value1=>oppilas
+<option value2=>opettaja
+</select> 
+<p>
+<input type="submit" value="Luo tunnus">
 </form>
 {% endblock %}

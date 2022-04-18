@@ -3,19 +3,18 @@
 {% block content %}
 <hr>
 <h2>Kirjaudu sisään</h2>
+<form action="/login" method="post">
 <p>
-    Käyttäjätunnus: <br><input type="text" name="username" placeholder="esim. Maija">
-</p>
+Käyttäjätunnus: <br><input type="text" name="username" placeholder="esim. Maija">
 <p>
-    Salasana: <br><input type="password" name="password" placeholder="esim. S4gl583vYT">
-</p>
-<form action="/">
-    <input type="submit" value="Kirjaudu sisään">
+Salasana: <br><input type="password" name="password" placeholder="esim. S4gl583vYT">
+<p>
+<input type="submit" value="Kirjaudu">
 </form>
 <p>
     tai
 </p>
-<form action="/kirjaudu_sisään/luo_tunnus">
+<form action="/login/register">
     <input type="submit" value="Luo uusi tunnus">
 </form>
 {% endblock %}
