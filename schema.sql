@@ -1,8 +1,8 @@
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username TEXT,
-    password TEXT,
-    status INTEGER
+    status INTEGER,
+    password TEXT
 );
 
 CREATE TABLE cards (

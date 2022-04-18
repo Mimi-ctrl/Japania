@@ -4,7 +4,8 @@
 <title>Japania</title>
 <h1>Japania</h1>
 <a href="/">Etusivu</a> 
-{% if session.user_id %}<b>{{ session.user_name }}</b>. <a href="/logout">Kirjaudu ulos</a>
+{% if session.user_id %}
+<b>{{ session.user_name }}</b>. <a href="/logout">Kirjaudu ulos</a>
 {% else %}
 <a href="/login">Kirjaudu sisään</a>
 {% endif %}
