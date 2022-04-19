@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 {% extends "layout.html" %}
 {% block content %}
+<h2>Etusivu</h2>
 <hr>
-<img src="/static/Sakura.png" alt="Sakura">
-<h1>Etusivu</h1>
-<hr>
-<h1>Harjoitukset:</h1>
+<h2>Harjoitukset:</h2>
 <ul>
 {% for deck in decks %}
 <li><a href="/deck/{{ deck.id }}">{{ deck.name }}</a>

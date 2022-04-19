@@ -40,7 +40,7 @@ a:active {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: rgb(253, 151, 207);
+  background-color: rgba(253, 151, 207, 0.644);
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -55,4 +55,9 @@ a:active {
 
 .sidenav a:hover {
   color: #b1e2f5;
+}
+
+.error {
+  font-size:large;
+  color:blueviolet;
 }
