@@ -3,33 +3,14 @@
 {% block content %}
 <hr>
 <img src="/static/Sakura.png" alt="Sakura">
-<h2>Etusivu</h2>
+<h1>Etusivu</h1>
 <hr>
-<h2>こんにちは!</h2>
-<p>
-Japania sovelluksen avulla voit harjoitella Japanin kielen alkeita. Sovelluksessa on saatavilla materiaaleja, sekä harjoituksia. Hauskoja opiskelu hetkiä!
-</p>
-<hr>
-<h3>Materiaaleja:</h3>
+<h1>Harjoitukset:</h1>
 <ul>
-    <li> <a href="/hiragana_and_katakana">Hiraganat ja katakanat</a>
-    <li> <a href="/words">Sanastoa</a>
+{% for deck in decks %}
+<li><a href="/deck/{{ deck.id }}">{{ deck.name }}</a>
+{% endfor %}
 </ul>
-<h3>Harjoitukset:</h3>
-<ul>
-    {% for deck in decks %}
-    <li><a href="/deck/{{ deck.id }}">{{ deck.name }}</a>
-    {% endfor %}
-    </ul>
-    
-    {% if session.user_role == 2 %}
-    <h3>Toiminnot:</h3>
-    <ul>
-    <li> <a href="/new_deck">Luo uusi pakka</a>
-    <li> <a href="/remove">Poista pakka</a>
-    <li> <a href="/statistics">Tilastot</a>
-</ul>
-    {% endif %}
 {% endblock %}
 
 

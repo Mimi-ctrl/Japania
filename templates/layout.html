@@ -2,11 +2,21 @@
 <link rel="stylesheet" href="/static/main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Japania</title>
-<h1>Japania</h1>
-<a href="/">Etusivu</a> 
-{% if session.user_id %}
-<b>{{ session.user_name }}</b>. <a href="/logout">Kirjaudu ulos</a>
-{% else %}
-<a href="/login">Kirjaudu sisään</a>
-{% endif %}
+<h1><img src="/static/Text.png" alt="Japania"></h1>
+
+<div class="sidenav">
+    <a href="/">Etusivu</a> 
+    {% if session.user_id %}
+    <a href="/logout">Kirjaudu ulos</a>
+    {% else %}
+    <a href="/login">Kirjaudu sisään</a>
+    {% endif %}
+    <li> <a href="/hiragana_and_katakana">Hiraganat ja katakanat</a>
+    <li> <a href="/words">Sanastoa</a>
+    {% if session.user_status == 2 %}
+    <li> <a href="/new_deck">Luo uusi pakka</a>
+    <li> <a href="/remove">Poista pakka</a>
+    <li> <a href="/statistics">Tilastot</a>
+    {% endif %}
+</div>
 {% block content %}{% endblock %}
