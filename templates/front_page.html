@@ -5,9 +5,9 @@
 <hr>
 <h2>Harjoitukset:</h2>
 <ul>
-{% for deck in decks %}
-<li><a href="/deck/{{ deck.id }}">{{ deck.name }}</a>
-{% endfor %}
+    {% for deck in decks %}
+    <li><a href="/deck/{{ deck.id }}">{{ deck.name }}</a>
+    {% endfor %}
 </ul>
 {% endblock %}
 
