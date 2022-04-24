@@ -88,19 +88,19 @@ def deck(deck_id):
 
 @app.route("/play")
 def play():
-    return render_template("play.html")
+    return render_template("front_page.html")
 
 @app.route("/play/result")
 def result():
-    return render_template("result.html")
+    return render_template("front_page.html")
 
 @app.route("/remove")
 def remove():
-    return render_template("remove.html")
+    return render_template("front_page.html")
 
 @app.route("/statistic")
 def show_stats():
   return render_template("front_page.html")
 
-#@app.route("/review", methods=["post"])
-#def review():
+@app.route("/review", methods=["post"])
+    return render_template("front_page.html")
