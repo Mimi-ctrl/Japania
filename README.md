@@ -20,4 +20,5 @@ Sovelluksen ominaisuuksia tulee olemaan vielä:
 :cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom:
 
 :bangbang: Heroku ei jostain syystä suostu päivittämään sovellusta uudempaan versioon, joten linkin kautta näkee vanhan version sovelluksesta. Heroku antaa virhe viestin: "The build failed with the message Unauthorized"
-Linkki [Herokuun](https://japania.herokuapp.com/).
+
+* Linkki [Herokuun](https://japania.herokuapp.com/).
