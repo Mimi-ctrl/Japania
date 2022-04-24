@@ -86,22 +86,20 @@ def deck(deck_id):
     return render_template("deck.html", id=deck_id, deck_name=info, username=info, size=size,
                            total=total, correct=correct, reviews=reviews)
 
-@app.route("/play")
-def play():
-    return render_template("front_page.html")
+#@app.route("/play")
+#def play():
+  
 
-@app.route("/play/result")
-def result():
-    return render_template("front_page.html")
+#@app.route("/play/result")
+#def result():
+ 
 
-@app.route("/remove")
-def remove():
-    return render_template("front_page.html")
+#@app.route("/remove")
+#def remove():
+ 
 
-@app.route("/statistic")
-def show_stats():
-  return render_template("front_page.html")
+#@app.route("/statistic")
+#def show_stats():
 
-@app.route("/review", methods=["post"])
-def review():
-    return render_template("front_page.html")
+#@app.route("/review", methods=["post"])
+#def review():
