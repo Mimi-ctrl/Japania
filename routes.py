@@ -83,8 +83,7 @@ def deck(deck_id):
     size = decks.get_deck_size(deck_id)
     total, correct = stats.get_deck_stats(deck_id, users.user_id())
     reviews = decks.get_reviews(deck_id)
-    return render_template("deck.html", id=deck_id, deck_name=info, username=info, size=size,
-                           total=total, correct=correct, reviews=reviews)
+    return render_template("deck.html", id=deck_id, deck_name=info, username=info, size=size, total=total, correct=correct, reviews=reviews)
 
 #@app.route("/play")
 #def play():
