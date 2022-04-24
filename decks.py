@@ -39,4 +39,3 @@ def remove_deck(deck_id, user_id):
 def add_review(deck_id, user_id, grades, comment):
     db.session.execute("""INSERT INTO reviews(deck_id, user_id, grades, comment)  VALUES (:deck_id, :user_id, :stars, :comment)""", {"deck_id":deck_id, "user_id":user_id,"grades":grades, "comment":comment})
     db.session.commit()
-#test
