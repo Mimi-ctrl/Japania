@@ -103,4 +103,5 @@ def show_stats():
   return render_template("front_page.html")
 
 @app.route("/review", methods=["post"])
+def review():
     return render_template("front_page.html")
