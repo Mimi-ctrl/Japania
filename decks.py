@@ -8,7 +8,7 @@ def get_deck_size(deck_id):
     return db.session.execute("SELECT COUNT(*) FROM cards WHERE deck_id = :deck_id",{"deck_id":deck_id}).fetchone()[0]
 
 def get_reviews(deck_id):
-    return db.session.execute("""SELECT u.username, r.grade, r.comment FROM reviews r, users u WHERE r.uder_id=u.id AND r.deck_id=:deck_id ORDER BY r.id""",{"deck_id": deck_id}).fetchall()
+    return db.session.execute("""SELECT u.username, r.grade, r.comment FROM reviews r, users u WHERE r.user_id=u.id AND r.deck_id=:deck_id ORDER BY r.id""",{"deck_id": deck_id}).fetchall()
 #korjaa uder user:iksi
 def get_all_decks():
     return db.session.execute("SELECT id, deck_name FROM decks WHERE visible=1").fetchall()
