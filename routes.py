@@ -6,8 +6,7 @@ import users
 
 @app.route("/")
 def index():
-    return render_template("front_page.html")
-# , decks=decks.get_all_decks()
+    return render_template("front_page.html", decks=decks.get_all_decks())
 
 @app.route("/hiragana_and_katakana") 
 def hiragana_and_katakana():
@@ -67,7 +66,7 @@ def new_deck():
     if request.method == "POST":
         users.check_csrf()
 
-        deck_name = request.form["name"]
+        deck_name = request.form["deck_name"]
         if len(deck_name) < 1 or len(deck_name) > 15:
             return render_template("error.html", message="Nimen pituuden tulee olla 1-15 merkkiä")
 
@@ -75,16 +74,17 @@ def new_deck():
         if len(words) > 20000:
             return render_template("error.html", message="Sanalista on liian pitkä")
 
-        deck_id = decks.new_deck(deck_name, words, users.user_id())
+        deck_id = decks.add_deck(deck_name, words, users.user_id())
         return redirect("/deck/"+str(deck_id))
         
-
-
 @app.route("/deck/<int:deck_id>")
 def deck(deck_id):
-    return render_template("deck.html", id=deck_id, deck_name=decks.get_deck_info(deck_id)[0], creator=decks.get_deck_info(deck_id)[1], size=decks.get_deck_size(deck_id),
-            total=stats.get_deck_stats(deck_id, users.user_id()), correct=stats.get_deck_stats(deck_id, users.user_id()))
-# , reviews=decks.get_reviews(deck_id)
+    info = decks.get_deck_info(deck_id)
+    size = decks.get_deck_size(deck_id)
+    total, correct = stats.get_deck_stats(deck_id, users.user_id())
+    reviews = decks.get_reviews(deck_id)
+    return render_template("deck.html", id=deck_id, deck_name=info, username=info, size=size,
+                           total=total, correct=correct, reviews=reviews)
 
 @app.route("/play")
 def play():

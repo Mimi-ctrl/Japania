@@ -2,19 +2,19 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h2>Pakka {{ name }}</h2>
+<h2>Pakka {{ deck_name }}</h2>
 
 <ul>
-    <li>Tekijä: {{ creator }}
-    <li>Kortteja: {{ size }} kpl
+<li>Tekijä: {{ creator }}
+<li>Kortteja: {{ size }} kpl
 </ul>
 
 {% if session.user_id %}
 <p><a href="/play/{{ id }}">Aloita</a></p>
 
 <ul>
-    <li>Oikein vastattuja: {{ correct }}
-    <li>Väärin vastattuja: 
+<li>Oikein vastattuja: {{ correct }}
+<li>Väärin vastattuja: {{ total-correct }}
 </ul>
 
 {% endif %}
@@ -23,9 +23,9 @@
 {% endif %}
 
 <ul>
-    {% for entry in reviews %}
-    <li> {{ entry[0] }} ({{ entry[1] }}/5): "{{ entry[2] }}"
-    {% endfor %}
+{% for entry in reviews %}
+<li> {{ entry[0] }} ({{ entry[1] }}/5): "{{ entry[2] }}"
+{% endfor %}
 </ul>
 
 {% if session.user_id %}

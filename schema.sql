@@ -29,7 +29,7 @@ CREATE TABLE answers (
 
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
-    uder_id INTEGER REFERENCES users,
+    user_id INTEGER REFERENCES users,
     deck_id INTEGER REFERENCES decks,
     grade INTEGER,
     comment TEXT
