@@ -6,7 +6,7 @@
 <form action="/remove" method="post">
 <p>Mikä pakka poistetaan?</p>
 {% for deck in list %}
-<input type="radio" name="deck" value="{{ deck.id }}"> {{ deck.name }} <br>
+<input type="radio" name="deck" value="{{ deck.id }}">{{ deck.deck_name }} <br>
 {% endfor %}
 <p>
 <input type="submit" value="Poista">

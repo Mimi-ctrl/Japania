@@ -31,13 +31,23 @@ def remove_deck(deck_id, user_id):
     db.session.execute("UPDATE decks SET visible=0 WHERE id:=id AND teacher_id=:user_id",{"id":deck_id, "user_id":user_id})
     db.session.commit()
 
-def add_review(deck_id, user_id, grades, comment):
-    db.session.execute("""INSERT INTO reviews(deck_id, user_id, grades, comment)  VALUES (:deck_id, :user_id, :stars, :comment)""", {"deck_id":deck_id, "user_id":user_id,"grades":grades, "comment":comment})
+def add_review(deck_id, uder_id, grades, comment):
+    db.session.execute("""INSERT INTO reviews(deck_id, uder_id, grades, comment)  VALUES (:deck_id, :uder_id, :greades, :comment)""", {"deck_id":deck_id, "uder_id":uder_id,"grades":grades, "comment":comment})
     db.session.commit()
+#uder id
 
-#def get_random_card(deck_id):
 
-#def get_card_words(card_id):
+def get_random_card(deck_id):
+    size = get_deck_size(deck_id)
+    pos = randint(0, size-1)
+    return db.session.execute("SELECT id, word FROM cards WHERE deck_id=:deck_id LIMIT 1 OFFSET :pos", {"deck_id":deck_id, "pos":pos}).fetchone()
 
-#def send_answer(card_id, answer, user_id):
+def get_card_words(card_id):
+    return db.session.execute("SELECT word, word2 FROM cards WHERE id=:card_id", {"card_id":card_id}).fetchone()
 
+def send_answer(card_id, answer, user_id):
+    correct = db.session.execute("SELECT word2 FROM cards WHERE id=:id", {"id":card_id}).fetchone()[0]
+    result = 1 if answer == correct else 0
+    db.session.execute("""INSERT INTO answers (user_id, card_id, sent_at, result)
+             VALUES (:user_id, :card_id, NOW(), :result)""", {"user_id":user_id, "card_id":card_id, "result":result})
+    db.session.commit()

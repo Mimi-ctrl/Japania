@@ -85,20 +85,46 @@ def deck(deck_id):
     reviews = decks.get_reviews(deck_id)
     return render_template("deck.html", id=deck_id, deck_name=info, username=info, size=size, total=total, correct=correct, reviews=reviews)
 
-#@app.route("/play")
-#def play():
+@app.route("/play/<int:deck_id>")
+def play(deck_id):
+    users.require_role(1)
+    return render_template("play.html", deck_id=deck_id, card_id=decks.get_random_card(deck_id)[0], question=decks.get_random_card(deck_id)[1])
   
+@app.route("/result", methods=["post"])
+def result():
+    users.require_role(1)
+    users.check_csrf()
+    decks.send_answer(request.form["card_id"], request.form["answer"].strip(), users.user_id())
+    words = decks.get_card_words(request.form["card_id"])
+    return render_template("result.html", deck_id=request.form["deck_id"], question=words[0],
+                           answer=request.form["answer"].strip(), correct=words[1])
 
-#@app.route("/play/result")
-#def result():
- 
+@app.route("/remove", methods=["get", "post"])
+def remove():
+    users.require_role(2)
+    if request.method == "GET":
+        return render_template("remove.html", list=decks.get_my_decks(users.user_id()))
+    if request.method == "POST":
+        users.check_csrf()
+        if "deck" in request.form:
+            decks.remove_deck(request.form["deck"], users.user_id())
+        return redirect("/")
 
-#@app.route("/remove")
-#def remove():
- 
 
-#@app.route("/statistic")
-#def show_stats():
+@app.route("/statistic")
+def show_stats():
+    users.require_role(2)
+    return render_template("stats.html", data=stats.get_full_stats(users.user_id()))
 
-#@app.route("/review", methods=["post"])
-#def review():
+@app.route("/review", methods=["post"])
+def review():
+    users.require_role(1)
+    users.check_csrf()
+    if int(request.form["grade"]) < 1 or int(request.form["grade"]) > 5:
+        return render_template("error.html", message="Virheellinen arvosana")
+    if len(request.form["comment"]) > 1000:
+        return render_template("error.html", message="Kommentti on liian pitkä")
+    if request.form["comment"] == "":
+        request.form["comment"] = "-"
+    decks.add_review(request.form["deck_id"], users.user_id(), int(request.form["grade"]), request.form["comment"])
+    return redirect("/deck/"+str(request.form["deck_id"]))
