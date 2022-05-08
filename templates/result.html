@@ -1,19 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h3>Vastaus:</h3>
+<h3>Tulos:</h3>
 
-Vastauksesi oli: <br>{{ answer }}</br>
-Sana oli: <br>{{ question }}</br> 
+Vastauksesi: <b>{{ answer }}</b><br>
+Sana: <b>{{ question }}</b></br>
 
 {% if answer == correct %}
-おめでと, vastaus on oikein!
+<b>おめでと</b>, vastaus on oikein!
 {% else %}
-間違った, oikea vastaus on <b>{{ correct }}</b>.
-{% endif %}
-
-<p>
-<a href="/play/{{ deck_id }}">Uusi kortti</a> |
-<a href="/deck/{{ deck_id }}">Lopeta</a>
-    
+<b>間違った</b>, oikea vastaus on <b>{{ correct }}</b>
+{% endif %}<br>
+<hr>
+<a href="/play/{{ deck_id }}">Uusi kortti|</a>
+<a href="/deck/{{ deck_id }}">Lopeta</a></br>
+  
 {% endblock %}

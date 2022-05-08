@@ -8,7 +8,11 @@
 <br>{{ question }}:</br>
 <input type="text" name="answer">
 
-<input type="submit" value="Lähetä">
+<input type="hidden" name="deck_id" value="{{ deck_id }}">
+<input type="hidden" name="card_id" value="{{ card_id }}">
+
+
+<input type="submit" value="Tarkista">
 
 <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 

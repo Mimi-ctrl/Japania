@@ -62,3 +62,20 @@ a:active {
   font-size:large;
   color:blueviolet;
 }
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  background-color:rgba(253, 151, 207, 0.644);
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: rgba(253, 151, 207, 0.644);
+}

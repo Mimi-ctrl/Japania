@@ -4,8 +4,7 @@ from flask import abort, request, session
 from werkzeug.security import check_password_hash, generate_password_hash
 
 def login(username, password):
-    sql = "SELECT password, id, status FROM users WHERE username=:name"
-    result = db.session.execute(sql, {"name":username})
+    result = db.session.execute("SELECT password, id, status FROM users WHERE username=:name", {"name":username})
     user = result.fetchone()
     if not user:
         return False
@@ -25,9 +24,7 @@ def logout():
 def register(username, password, status):
     y = generate_password_hash(password)
     try: 
-        sql = """INSERT INTO users (username, password, status)
-                VALUES (:username, :password, :status)"""
-        db.session.execute(sql, {"username":username, "password":y, "status":status})
+        db.session.execute("""INSERT INTO users (username, password, status) VALUES (:username, :password, :status)""", {"username":username, "password":y, "status":status})
         db.session.commit()
     except:
         return False

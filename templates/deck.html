@@ -2,7 +2,7 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h2>Pakka {{ deck_name }}</h2>
+<h2>Pakka {{ name }}</h2>
 
 <ul>
 <li>Tekijä: {{ creator }}
@@ -31,16 +31,15 @@
 {% if session.user_id %}
 </p>
 <h3>Jätä arvio pakasta:</h3>
-<label>
-<input type="range" min=1 max=5 name="arvosana">
-</label><br>
 <form action="/review" method="post">
+<label>
+<input type="range" min=1 max=5 name="grade">
+</label><br>
 <p>Kommentti:<br>
 <textarea name="comment" row="3" cols="40" maxlength="1000"></textarea>
-</p>
-</form>
-<form action="/pakka">
-    <input type="submit" value="Lähetä">
+<p><input type="submit" value="Lähetä">
+    <input type="hidden" name="deck_id" value="{{ id }}">
+    <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 </form>
 {% endif %}
 {% endblock %}
