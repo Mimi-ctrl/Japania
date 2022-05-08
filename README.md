@@ -17,4 +17,5 @@ Sovelluksen ominaisuuksia ovat:
 
 :cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom::cherry_blossom:
 
+Olin yhdistänyt sovelluksen Herokuun GitHubin kautta, mutta se lakkasi toimimasta ja olen yrittänyt sen jälkeen saada sen toimimaan HerokuClin kautta. Linkin kautta näkyvä sovellus ei ole sellainen kuin pitäisi.
 * Linkki [Herokuun](https://japania.herokuapp.com/).
