@@ -74,7 +74,8 @@ def new_deck():
 @app.route("/deck/<int:deck_id>")
 def deck(deck_id):
     total, correct = stats.get_deck_stats(deck_id, users.user_id())
-    return render_template("deck.html", id=deck_id, name=decks.get_deck_info(deck_id)[0], creator=decks.get_deck_info(deck_id)[1], size=decks.get_deck_size(deck_id), total=total, correct=correct, reviews=decks.get_reviews(deck_id))
+    return render_template("deck.html", id=deck_id, name=decks.get_deck_info(deck_id)[0], creator=decks.get_deck_info(deck_id)[1],
+                 size=decks.get_deck_size(deck_id), total=total, correct=correct, reviews=decks.get_reviews(deck_id))
 
 @app.route("/play/<int:deck_id>")
 def play(deck_id):
@@ -87,7 +88,8 @@ def result():
     users.check_csrf()
 
     decks.send_answer(request.form["card_id"], request.form["answer"].strip(), users.user_id())
-    return render_template("result.html", deck_id=request.form["deck_id"], question=decks.get_card_words(request.form["card_id"])[0], answer=request.form["answer"].strip(), correct=decks.get_card_words(request.form["card_id"])[1])
+    return render_template("result.html", deck_id=request.form["deck_id"], question=decks.get_card_words(request.form["card_id"])[0], 
+                    answer=request.form["answer"].strip(), correct=decks.get_card_words(request.form["card_id"])[1])
 
 @app.route("/remove", methods=["get", "post"])
 def remove():

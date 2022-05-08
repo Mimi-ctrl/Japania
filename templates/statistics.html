@@ -13,8 +13,8 @@
 {% for user in entry[1] %}
 <tr>
     <td>{{ user[0] }}</td>
-    <td>{{ user[1] }}</td>
     <td>{{ user[2] }}</td>
+    <td>{{ user[1]-user[2] }}</td>
 </tr>
 {% endfor %}
 </table>

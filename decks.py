@@ -2,13 +2,15 @@ from random import randint
 from db import db
 
 def get_deck_info(deck_id):
-    return db.session.execute("""SELECT d.deck_name, u.username FROM decks d, users u WHERE d.id=:deck_id AND d.teacher_id=u.id""", {"deck_id": deck_id}).fetchone()
+    return db.session.execute("""SELECT d.deck_name, u.username FROM decks d, users u WHERE d.id=:deck_id 
+                    AND d.teacher_id=u.id""", {"deck_id": deck_id}).fetchone()
 
 def get_deck_size(deck_id):
     return db.session.execute("SELECT COUNT(*) FROM cards WHERE deck_id = :deck_id",{"deck_id":deck_id}).fetchone()[0]
 
 def get_reviews(deck_id):
-    return db.session.execute("""SELECT u.username, r.grade, r.comment FROM reviews r, users u WHERE r.uder_id=u.id AND r.deck_id=:deck_id ORDER BY r.id""",{"deck_id": deck_id}).fetchall()
+    return db.session.execute("""SELECT u.username, r.grade, r.comment FROM reviews r, users u 
+                    WHERE r.uder_id=u.id AND r.deck_id=:deck_id ORDER BY r.id""",{"deck_id": deck_id}).fetchall()
     #korjaa uder user:iksi
 
 def get_all_decks():
@@ -18,7 +20,8 @@ def get_my_decks(user_id):
     return db.session.execute("""SELECT id, deck_name FROM decks WHERE teacher_id=:user_id AND visible=1""", {"user_id":user_id}).fetchall()
 
 def add_deck(deck_name, words, teacher_id):
-    deck_id = db.session.execute("""INSERT INTO decks (teacher_id, deck_name, visible) VALUES (:teacher_id, :deck_name, 1) RETURNING id""", {"teacher_id":teacher_id, "deck_name":deck_name}).fetchone()[0]
+    deck_id = db.session.execute("""INSERT INTO decks (teacher_id, deck_name, visible) 
+                    VALUES (:teacher_id, :deck_name, 1) RETURNING id""", {"teacher_id":teacher_id, "deck_name":deck_name}).fetchone()[0]
     for pair in words.split("\n"):
         parts = pair.strip().split(";")
         if len(parts) != 2:
@@ -40,12 +43,14 @@ def get_card_words(card_id):
     return db.session.execute("SELECT word, word2 FROM cards WHERE id=:card_id", {"card_id":card_id}).fetchone()
 
 def add_review(deck_id, user_id, grades, comment):
-    db.session.execute("""INSERT INTO reviews (deck_id, uder_id, grade, comment) VALUES (:deck_id, :uder_id, :grade, :comment)""", {"deck_id":deck_id, "uder_id":user_id, "grade":grades, "comment":comment})
+    db.session.execute("""INSERT INTO reviews (deck_id, uder_id, grade, comment) 
+                    VALUES (:deck_id, :uder_id, :grade, :comment)""", {"deck_id":deck_id, "uder_id":user_id, "grade":grades, "comment":comment})
     db.session.commit()
 #uder id
 
 def send_answer(card_id, answer, user_id):
     correct = db.session.execute("SELECT word2 FROM cards WHERE id=:id", {"id":card_id}).fetchone()[0]
     result = 1 if answer == correct else 0
-    db.session.execute("""INSERT INTO answers (user_id, card_id, time, result) VALUES (:user_id, :card_id, NOW(), :result)""", {"user_id":user_id, "card_id":card_id, "result":result})
+    db.session.execute("""INSERT INTO answers (user_id, card_id, time, result) 
+                    VALUES (:user_id, :card_id, NOW(), :result)""", {"user_id":user_id, "card_id":card_id, "result":result})
     db.session.commit()
